@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<title>Admin Dashboard</title>
+
+<link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+<h2>Admin Panel</h2>
+
+<ul>
+<li onclick="showSection('dashboard')">Dashboard</li>
+<li onclick="showSection('companies')">Companies</li>
+<li onclick="showSection('subscriptions')">Subscriptions</li>
+<li onclick="showSection('staff')">Staff</li>
+<li onclick="showSection('reports')">Reports</li>
+<li onclick="showSection('settings')">Settings</li>
+<li onclick="showSection('helpSupport')">Help & Support</li>
+</ul>
+</div>
+
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="section">
+<h2>Dashboard</h2>
+<p>Welcome to the admin dashboard.</p>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<h2>Monthly Company Registration</h2>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  canvas { max-width: 600px; margin-top: 20px; }
+</style>
+<table>
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Plan</th>
+        <th>Status</th>
+        <th>Joined</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GreenTech</td>
+        <td>Enterprise</td>
+        <td>Active</td>
+        <td>April 22, 2024</td>
+         </tr>
+      <tr>
+        <td>TUT</td>
+        <td>Standard</td>
+        <td>Active</td>
+        <td>Jun 11,2022</td>
+        </tr>
+      <tr>
+        <td>Anglo America</td>
+        <td>Basic</td>
+        <td>Pending</td>
+        <td>March 02, 2025</td>
+    </tr>
+     </tbody>
+  </table>
+
+<canvas id="registrationChart" width="700" height="300"></canvas>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const rows = Array.from(document.querySelectorAll("#companyTable tbody tr"));
+
+  // Convert dates to YYYY-MM and count registrations
+  const registrationCount = {};
+
+  rows.forEach(r => {
+    const date = new Date(r.cells[3].innerText);
+    const monthKey = `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}`; // YYYY-MM
+    registrationCount[monthKey] = (registrationCount[monthKey] || 0) + 1;
+  });
+
+  // Find min and max month for full range
+  const months = Object.keys(registrationCount).sort();
+  const start = new Date(months[0] + "-01");
+  const end = new Date(months[months.length-1] + "-01");
+
+  const labels = [];
+  const data = [];
+
+  // Fill all months including 0s
+  let current = new Date(start);
+  while(current <= end){
+    const key = `${current.getFullYear()}-${String(current.getMonth()+1).padStart(2,'0')}`;
+    labels.push(key);
+    data.push(registrationCount[key] || 0);
+    current.setMonth(current.getMonth() + 1);
+  }
+
+  const ctx = document.getElementById("registrationChart").getContext("2d");
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Registrations',
+        data: data,
+        fill: true,
+        borderColor: 'blue',
+        backgroundColor: 'rgba(0,0,255,0.1)',
+        tension: 0.3,
+        pointRadius: 5
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: true } },
+      scales: {
+        x: { 
+          title: { display: true, text: 'Month' } 
+        },
+        y: { 
+          title: { display: true, text: 'Number of Registrations' }, 
+          beginAtZero: true,
+          precision: 0
+        }
+      }
+    }
+  });
+
+});
+</script>
+
+
+
+
+
+</div>
+
+
+<!-- COMPANIES -->
+<div id="companies" class="section">
+
+<h2>Companies</h2>
+
+<table>
+<thead>
+<tr>
+<th>Logo</th>
+<th>Company Name</th>
+<th>Phone</th>
+<th>Email</th>
+</tr>
+</thead>
+
+<tbody id="companyTable"></tbody>
+
+</table>
+
+</div>
+
+
+<!-- SUBSCRIPTIONS -->
+<div id="subscriptions" class="section">
+
+<h2>Subscriptions</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>Company Name</th>
+<th>Plan</th>
+<th>Status</th>
+<th>Billing Cycle</th>
+<th>Start Date</th>
+<th>Payment Status</th>
+</tr>
+</thead>
+
+<tbody id="subscriptionTable"></tbody>
+
+</table>
+
+</div>
+
+
+<!-- STAFF -->
+<div id="staff" class="section">
+
+<h2>Staff Members</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>Role</th>
+<th>Staff Member ID</th>
+<th>Full Name</th>
+<th>Phone No</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody id="staffTable">
+
+<tr>
+<td>Admin</td>
+<td>123456784445</td>
+<td>Jason M</td>
+<td>0891104757</td>
+
+<td>
+<button>Edit</button>
+<button>Delete</button>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- REPORTS -->
+ <!-- Include Chart.js in HEAD or just before your custom script -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div id="reports" class="section">
+  <h2>Revenue Reports</h2>
+
+  <table id="reportTable">
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Plan</th>
+        <th>Status</th>
+        <th>Registrations</th>
+        <th>Renewals</th>
+        <th>Revenue ($)</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>BlueMachines LTD</td>
+        <td>Enterprise</td>
+        <td>Active</td>
+        <td>10</td>
+        <td>1</td>
+        <td>425.09</td>
+        <td>2025-04-04</td>
+      </tr>
+      <tr>
+        <td>GreenTech Corp</td>
+        <td>Standard</td>
+        <td>Active</td>
+        <td>4</td>
+        <td>5</td>
+        <td>552.90</td>
+        <td>2025-01-01</td>
+      </tr>
+      <tr>
+        <td>NovaSoft Inc</td>
+        <td>Basic</td>
+        <td>Pending</td>
+        <td>13</td>
+        <td>1</td>
+        <td>321.09</td>
+        <td>2025-05-05</td>
+      </tr>
+      <tr>
+        <td>PrimeLogix Inc</td>
+        <td>Enterprise</td>
+        <td>Active</td>
+        <td>8</td>
+        <td>3</td>
+        <td>435.88</td>
+        <td>2025-07-07</td>
+      </tr>
+      <tr>
+        <td>AutoPro Systems</td>
+        <td>Basic</td>
+        <td>Pending</td>
+        <td>12</td>
+        <td>4</td>
+        <td>123.32</td>
+        <td>2025-04-04</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <canvas id="revenueLineChart" width="300" height="150"></canvas>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Get canvas context
+    const ctx = document.getElementById("revenueLineChart").getContext("2d");
+
+    // Extract data from table
+    const rows = Array.from(document.querySelectorAll("#reportTable tbody tr"));
+    const labels = rows.map(r => r.cells[6].innerText);       // Date column
+    const data = rows.map(r => parseFloat(r.cells[5].innerText)); // Revenue column
+
+    // Create Chart.js line chart
+    new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "Revenue ($)",
+                data: data,
+                borderColor: "blue",
+                backgroundColor: "rgba(0,0,255,0.1)",
+                tension: 0.3,
+                fill: true,
+                pointRadius: 5
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: true } },
+            scales: {
+                x: { title: { display: true, text: "Date" } },
+                y: { title: { display: true, text: "Revenue ($)" }, beginAtZero: true }
+            }
+        }
+    });
+});
+</script>
+
+
+
+<!-- HELP & SUPPORT -->
+<div id="helpSupport" class="section">
+
+
+<div class="help-card" onclick="openHelp('billing')">
+<img src="https://img.icons8.com/fluency/48/bank-card-back-side.png">
+<h3>Billing & Payments</h3>
+<p>Manage invoices and payments</p>
+</div>
+
+<div class="help-card" onclick="openHelp('subscription')">
+<img src="https://img.icons8.com/fluency/48/subscribe.png">
+<h3>Subscription Plans</h3>
+<p>Choose subscription plans</p>
+</div>
+
+<div class="help-card" onclick="openHelp('users')">
+<img src="https://img.icons8.com/fluency/48/user-group-man-man.png">
+<h3>User Management</h3>
+<p>Manage system users</p>
+</div>
+
+<div class="help-card" onclick="openHelp('overview')">
+<img src="https://img.icons8.com/fluency/48/dashboard-layout.png">
+<h3>System Overview</h3>
+<p>View system overview</p>
+</div>
+
+</div>
+
+
+<!-- SETTINGS -->
+
+   <!-- SETTINGS -->
+<div id="settings" class="section">
+<style>
+/* --- Tabs Styling --- */
+.tabs {
+  display: flex;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #f1f1f1;
+  margin-right: 2px;
+  transition: background 0.3s;
+}
+
+.tab.active {
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-bottom: none;
+}
+
+/* --- Content Styling --- */
+.tab-content {
+  display: none;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* --- Form Styling --- */
+.tab-content input[type="text"], 
+.tab-content input[type="email"], 
+.tab-content input[type="tel"], 
+.tab-content input[type="password"] {
+  width: 250px;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.checkbox-group label {
+  display: block;
+  margin: 5px 0;
+}
+
+/* --- Toggle Switch Styling --- */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  margin-left: 10px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 25px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 19px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.toggle-switch input:checked + .slider {
+  background-color: #28a745; /* Green when active */
+}
+
+.toggle-switch input:checked + .slider:before {
+  transform: translateX(25px);
+}
+
+/* --- Toggle labels --- */
+.toggle-label {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+.toggle-label span.icon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+/* --- Login Activity --- */
+.login-activity {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+</style>
+</head>
+<body>
+
+<div class="tabs">
+  <div class="tab active" data-tab="general">General</div>
+  <div class="tab" data-tab="security">Security</div>
+  <div class="tab" data-tab="notifications">Notifications</div>
+  <div class="tab" data-tab="subscription">Subscription</div>
+</div>
+
+<!-- --- General Tab --- -->
+<div id="general" class="tab-content active">
+  <h3>Profile Information</h3>
+  <label>Full Name: <input type="text" placeholder="Enter full name"></label><br>
+  <label>Email: <input type="email" placeholder="Enter email"></label><br>
+  <label>Company: <input type="text" placeholder="Enter company"></label><br>
+  <label>Phone Number: <input type="tel" placeholder="Enter phone number"></label><br>
+  
+  <div class="checkbox-group">
+    <p>Languages:</p>
+    <label><input type="checkbox" value="english"> English</label>
+    <label><input type="checkbox" value="spanish"> Spanish</label>
+    <label><input type="checkbox" value="french"> French</label>
+    <label><input type="checkbox" value="german"> German</label>
+  </div>
+</div>
+
+<!-- --- Security Tab --- -->
+<div id="security" class="tab-content">
+  <h3>Security Information</h3>
+  
+  <label>Change Password: <input type="password" placeholder="Enter new password"></label><br>
+  
+  <label class="toggle-label">
+    <span class="icon">🔒</span> Two-Factor Authentication Enabled
+    <label class="toggle-switch">
+      <input type="checkbox" checked>
+      <span class="slider"></span>
+    </label>
+  </label>
+  
+  <label>
+    <input type="checkbox"> Manage API Keys
+  </label>
+  
+  <div class="login-activity">
+    <strong>Login Activity:</strong><br>
+    Last Login: 03 Mar, 2026
+  </div>
+</div>
+
+<!-- --- Notifications Tab --- -->
+<div id="notifications" class="tab-content">
+  <h3>Notification Settings</h3>
+  
+  <label class="toggle-label">
+    <span class="icon">🏢</span> New Company Registration
+    <label class="toggle-switch">
+      <input type="checkbox">
+      <span class="slider"></span>
+    </label>
+  </label>
+  
+  <label class="toggle-label">
+    <span class="icon">🔁</span> Subscription Renewals
+    <label class="toggle-switch">
+      <input type="checkbox">
+      <span class="slider"></span>
+    </label>
+  </label>
+
+  <label class="toggle-label">
+    <span class="icon">💳</span> Payment Reminders
+    <label class="toggle-switch">
+      <input type="checkbox">
+      <span class="slider"></span>
+    </label>
+  </label>
+
+  <label class="toggle-label">
+    <span class="icon">⚠️</span> System Alerts
+    <label class="toggle-switch">
+      <input type="checkbox">
+      <span class="slider"></span>
+    </label>
+  </label>
+
+  <label class="toggle-label">
+    <span class="icon">📊</span> Weekly Reports
+    <label class="toggle-switch">
+      <input type="checkbox">
+      <span class="slider"></span>
+    </label>
+  </label>
+</div>
+
+<!-- --- Subscription Tab --- -->
+<div id="subscription" class="tab-content">
+  <h3>Subscription Settings</h3>
+  
+  <label class="toggle-label">
+    <span class="icon">🔄</span> Auto-renew Subscriptions
+    <label class="toggle-switch">
+      <input type="checkbox">
+      <span class="slider"></span>
+    </label>
+  </label>
+
+  <p>Grace Period (days): <strong>5</strong></p>
+  <p>Subscription Total Period: <strong>14 days</strong></p>
+
+  <label class="toggle-label">
+    <span class="icon">✉️</span> Email Notifications
+    <label class="toggle-switch">
+      <input type="checkbox">
+      <span class="slider"></span>
+    </label>
+  </label>
+</div>
+
+<script>
+// --- Tabs functionality ---
+const tabs = document.querySelectorAll('.tab');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    // Remove active class from all tabs and contents
+    tabs.forEach(t => t.classList.remove('active'));
+    tabContents.forEach(tc => tc.classList.remove('active'));
+    
+    // Activate clicked tab and content
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.tab).classList.add('active');
+  });
+});
+</script>
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+<script src="script2.js"></script>
+
+</body>
+</html>
