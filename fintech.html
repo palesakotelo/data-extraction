@@ -373,42 +373,111 @@
 
 <!-- COMPANIES -->
 <div id="companies" class="section">
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
 
-<h2>Companies</h2>
+        #companies {
+            max-width: 800px;        /* keeps content readable */
+            margin: 20px 0 0 40px;   /* top 20px, left 40px */
+            padding: 10px;           /* inner spacing */
+            text-align: left;        /* ensures all text inside is left-aligned */
+        }
 
-<table>
-<thead>
-<tr>
-<th>Company name</th>
-<th>Office No</th>
-<th>Email</th>
-<th>Company Logo</th>
-</tr>
-</thead>
-<tr> 
-  <td><a href="Azania.html"> Azania Chartered Account and Associates</a></td>
-  <td>0120041530</td>
-  <td>info@azani</td>
-  <td></td>
-</tr>
-<tr>
-  <td><a href = "blumachines.html">BlueMachines</a></td>
-  <td>080014942</td>
-  <td>info@bluebeanbsoftware.com</td>
-  <td></td>
-</tr>
+        #companies h1,
+        #companies h2,
+        #companies h3,
+        #companies p {
+            text-align: left;
+            margin-top: 0;
+        }
 
-<tr>
-  <td><a href = "fintech.html">FinTech</a></td>
-  <td>+27118795700</td>
-  <td>info@fintech-group.com</td>
-  <td></td>
-</tr>
+        #companies ul {
+            padding-left: 20px; /* proper indentation for list */
+        }
 
-<tbody id="companyTable"></tbody>
+        #companies button {
+            margin-top: 15px;
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 
-</table>
 
+<div id="companies">
+    <h1>Overview</h1>
+    <p> FinTech Africa Group is a leading financial technology provider specializing in integrated digital payment gateways and robust blockchain solutions. we empower businesses across the continent with secure, scalable infrastructure for mobile banking and algorithmic trading. by bridging the gap between traditional finance and modern digital ecosystems, we drive financialk inclusion and operational efficiency through cutting edge, data-driven technology</p>
+
+    <h2>Services</h2>
+    <ul>
+        <li>Tax Advisory</li>
+        <li>Financial Audits</li>
+        <li>Financial Announcement</li>
+        <li>Better Assessment</li>
+        <li>Medium Audits</li>
+        <li>Financial Management</li>
+    </ul>
+
+    <button>Edit Profile</button>
+</div>
+</div>
+
+<h2> Key Personnel</h2>
+<p> Azania Mokoena Analyst</p>
+<p>John Smith CEO</p>
+<P>Jeily Smith Adminstrator</P>
+<p>Sipho Mthanti Manager</p>
+
+ <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .contact-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; /* aligns content to the right */
+            position: absolute;    /* stick to top right */
+            top: 20px;
+            right: 40px;
+            text-align: right;
+        }
+
+        .contact-right h1,
+        .contact-right h2 {
+            margin: 5px 0;
+        }
+
+        .contact-right button {
+            margin-bottom: 10px;
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .contact-right i {
+            margin-right: 8px; /* spacing between icon and phone number */
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+
+<div class="contact-right">
+    <button>Edit Profile</button>
+    <h1>Contact Details</h1>
+    <h1><i class="fa fa-phone"></i>+27 11 044 1530</h1>
+    <h2>info@fintech.com</h2>
+    <h2>thefintechsolutions.com</h2>
 </div>
 
 
@@ -429,78 +498,6 @@
 <th>Payment Status</th>
 </tr>
 </thead>
-
-
-<tr>
-  <td>BlueMachines LTD</td>
-  <td>Enterprise</td>
-  <td>Active</td>
-  <td>Monthly</td>
-  <td>Jan 22,2024</td>
-  <td>Paid</td>
-</tr>
-
-<tr>
-  <td>GreenTech Corp</td>
-  <td>Standard</td>
-  <td>Active</td>
-  <td>Monthly</td>
-  <td>Dec 20, 2023</td>
-  <td>Paid</td>
-</tr>
-
-<tr>
-  <td>NovaSoft Inc</td>
-  <td>Basic</td>
-  <td>Pending</td>
-  <td>Monthly</td>
-  <td>Apr 18, 2024</td>
-  <td>Due</td>
-</tr>
-<tr>
-  <td>Horizon Rentals LLC</td>
-  <td>Enterprise</td>
-  <td>Suspended</td>
-  <td>Yearly</td>
-  <td>Sep 05, 2023</td>
-  <td>Overdue</td>
-</tr>
-
-<tr>
-  <td>CloudBase Solutions </td>
-  <td>Standard</td>
-  <td>Active</td>
-  <td>Monthly</td>
-  <td>Oct 12, 2024</td>
-  <td>Paid</td>
-</tr>
-
-<tr>
-  <td>GreenLeaf Supplies</td>
-  <td>Basic</td>
-  <td>Active</td>
-  <td>Quarterly</td>
-  <td>Jul 25, 2023</td>
-  <td>Paid</td>
-</tr>
-
-<tr>
-  <td>Dataworks Analytics </td>
-  <td>Enterprise</td>
-  <td>Active</td>
-  <td>Monthly</td>
-  <td>Sep 10, 2022</td>
-  <td>Paid</td>
-</tr>
-
-<tr>
-<td>Quantum System</td>
-<td>Standard</td>
-<td>Expired</td>
-<td>Monthly</td>
-<td>May 01, 2023</td>
-<td>Overdue</td>
-</tr>
 
 <tbody id="subscriptionTable"></tbody>
 

@@ -2,11 +2,7 @@
 // 1. SAMPLE DATA (Simulating Database)
 // ===============================
 
-const companies = [
-    { logo: "https://via.placeholder.com/50", name: "Azania Chartered  Account and Associaties", phone: "0120041530", email: "info@azaniaca.co.za" },
-    { logo: "https://via.placeholder.com/50", name: "BlueMachines Solutions", phone: "0800014942", email: "info@bluebeansoftware.com" },
-    {logo: "https://via.placeholder.com/50", name: "FinTech Africa Group", phone: "+27118795700", email: "info@fintech-group.com" }
-];
+
 
 const subscriptions = [
     { company: "BlueMachines LTD", plan: "Enterprise", status: "Active", billing: "Monthly", start: "Jan 22,2024", payment: "Paid" },
@@ -618,7 +614,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+//staff button
 
+function editUser(button) {
+    // Get the row
+    let row = button.parentNode.parentNode;
+    let nameCell = row.cells[0];
+    let currentName = nameCell.textContent;
+
+    // Ask user for new name
+    let newName = prompt("Edit user name:", currentName);
+    if (newName !== null && newName.trim() !== "") {
+        nameCell.textContent = newName;
+        alert("User updated successfully!");
+    }
+}
+
+// Delete user function
+function deleteUser(button) {
+    if (confirm("Are you sure you want to delete this user?")) {
+        let row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+        alert("User deleted successfully!");
+    }
+}
 
 
 
@@ -668,6 +687,144 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+
+//billing 
+
+
+function toggleBilling(){
+  const billing = document.getElementById("billing-section");
+
+  if(billing.style.display === "none" || billing.style.display === ""){
+      billing.style.display = "block";
+  } else {
+      billing.style.display = "none";
+  }
+}
+
+function viewHistory(){
+  alert("Showing billing history...");
+}
+
+function goCredit(){
+  window.location.href = "credit.html";
+}
+
+function goPaypal(){
+  window.location.href = "https://www.paypal.com";
+}
+
+
+
+function showSection(sectionId) {
+
+  // Hide all sections
+  const sections = document.querySelectorAll(".section");
+  sections.forEach(sec => {
+    sec.style.display = "none";
+  });
+
+  // Show selected section
+  document.getElementById(sectionId).style.display = "block";
+
+  // Hide billing options when leaving Help & Support
+  const billing = document.getElementById("billing-section");
+  if(billing){
+    billing.style.display = "none";
+  }
+
+}
+
+let user = [];
+
+// Toggle visibility
+function toggleUsers() {
+  const section = document.getElementById("user-section");
+  section.style.display = (section.style.display === "none" || section.style.display === "") ? "block" : "none";
+}
+
+// Render the table
+function renderTable() {
+  const tbody = document.getElementById("userTable");
+  tbody.innerHTML = "";
+  users.forEach((user, index) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${user.role}</td>
+      <td>${user.name}</td>
+      <td>${user.phone}</td>
+      <td>
+        <button onclick="editUser(${index})">Edit</button>
+        <button onclick="deleteUser(${index})">Delete</button>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+// Add user
+function addUser() {
+  const name = document.getElementById("newName").value.trim();
+  const role = document.getElementById("newRole").value.trim();
+  const phone = document.getElementById("newPhone").value.trim();
+
+  if(!name || !role || !phone){
+    alert("Please fill all fields!");
+    return;
+  }
+
+  users.push({ name, role, phone });
+  renderTable();
+
+  // Clear inputs
+  document.getElementById("newName").value = "";
+  document.getElementById("newRole").value = "";
+  document.getElementById("newPhone").value = "";
+}
+
+// Delete user
+function deleteUser(index) {
+  if(confirm("Are you sure you want to delete this user?")) {
+    users.splice(index, 1);
+    renderTable();
+  }
+}
+
+// Edit user
+function editUser(index) {
+  const user = users[index];
+  const newName = prompt("Edit Full Name:", user.name);
+  if(newName === null) return; // cancel
+  const newRole = prompt("Edit Role:", user.role);
+  if(newRole === null) return;
+  const newPhone = prompt("Edit Phone:", user.phone);
+  if(newPhone === null) return;
+
+  users[index] = { name: newName, role: newRole, phone: newPhone };
+  renderTable();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
