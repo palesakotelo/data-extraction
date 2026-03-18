@@ -136,7 +136,98 @@
                             </tr>
                         </tbody>
                     </table>
-                    <button class="add-company-btn">Add Company</button>
+                    <button class="add-company-btn" onclick="showScreen('add-company-screen')">Add Company</button>
+                </section>
+            </main>
+        </div>
+
+        <!-- Add company -->
+        <div id="add-company-screen" class="dashboard-container" style="display: none;">
+            <aside class="sidebar">
+                <div class="sidebar-item" onclick="showScreen('dashboard-screen')"><i data-lucide="layout-dashboard"></i> Dashboard</div>
+                <div class="sidebar-item active" onclick="showScreen('companies-screen')"><i data-lucide="building-2"></i> Companies</div>
+                <div class="sidebar-item" onclick="showScreen('subscriptions-screen')"><i data-lucide="credit-card"></i> Subscriptions</div>
+                <div class="sidebar-item" onclick="showScreen('staff-screen')"><i data-lucide="users"></i> Staff</div>
+                <div class="sidebar-item" onclick="showScreen('reports-screen')"><i data-lucide="bar-chart-3"></i> Reports</div>
+                <div class="sidebar-item"><i data-lucide="settings"></i> Settings</div>
+                <div class="sidebar-footer"><i data-lucide="help-circle"></i> Help & Support</div>
+            </aside>
+        
+            <main class="dashboard-main">
+                <header class="dashboard-header">
+                    <div class="search-bar"><i data-lucide="search"></i><input type="text" placeholder="Search"></div>
+                    <div class="header-icons">
+                        <i data-lucide="bell"></i>
+                        <div class="user-avatar">L</div>
+                    </div>
+                </header>
+        
+                <section class="registration-form-container">
+                    <div class="form-header">
+                        <h2>Company Registration</h2>
+                        <p>Register your company to access JSE Analytics platform</p>
+                    </div>
+        
+                    <form class="multi-column-form">
+                        <h3 class="form-section-title">Company Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Company Name*</label>
+                                <input type="text" placeholder="Enter company name">
+                            </div>
+                            <div class="form-group">
+                                <label>Email*</label>
+                                <input type="email" placeholder="Enter company email">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Registration Number*</label>
+                                <input type="text" placeholder="Registration number">
+                            </div>
+                            <div class="form-group">
+                                <label>Website URL*</label>
+                                <input type="url" placeholder="https://www.company.co.za">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label>Company Logo</label>
+                            <div class="upload-box" onclick="triggerUpload(this)">
+                                <i data-lucide="upload-cloud"></i>
+                                <span>Upload logo</span>
+                                <small>PNG, JPG up to 2MB</small>
+                                <input type="file" class="file-input" accept="image/png, image/jpeg" hidden onchange="handleFileSelect(this)">
+                            </div>
+                        </div>
+        
+                        <h3 class="form-section-title">Company Administrator Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name*</label>
+                                <input type="text">
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name*</label>
+                                <input type="text">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email*</label>
+                                <input type="email">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone number*</label>
+                                <input type="tel">
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn-cancel" onclick="showScreen('companies-screen')">Cancel</button>
+                            <button type="submit" class="btn-register">Register Company</button>
+                        </div>
+                    </form>
                 </section>
             </main>
         </div>
@@ -352,6 +443,23 @@
             }
         }
     
+        // Function to open the file explorer when the box is clicked
+function triggerUpload(boxElement) {
+    const fileInput = boxElement.querySelector('.file-input');
+    fileInput.click();
+}
+
+// Optional: Function to show the name of the file once selected
+function handleFileSelect(input) {
+    if (input.files && input.files[0]) {
+        const fileName = input.files[0].name;
+        const span = input.parentElement.querySelector('span');
+        
+        // Update the UI to show the file is attached
+        span.textContent = `Selected: ${fileName}`;
+        span.style.color = "#0084FF"; // Use your brand light blue
+    }
+}
         // --- CHART INITIALIZATION ---
     
         // 1. Line Chart: Monthly Company Registration

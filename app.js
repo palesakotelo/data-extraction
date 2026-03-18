@@ -34,8 +34,7 @@ function showScreen(screenId) {
     lucide.createIcons();
 
     // Set background color
-    const isDashboardView = ['dashboard-screen','companies-screen','staff-screen','subscriptions-screen','reports-screen','settings-screen','help-screen'].includes(screenId);
-    document.body.style.backgroundColor = isDashboardView ? "#F0F5F9" : "#FFFFFF";
+    const isDashboardView = ['dashboard-screen', 'companies-screen', 'staff-screen', 'add-company-screen', 'subscriptions-screen', 'reports-screen'].includes(screenId);    document.body.style.backgroundColor = isDashboardView ? "#F0F5F9" : "#FFFFFF";
 
     // Update sidebar active state dynamically
     document.querySelectorAll('.sidebar-item').forEach(item => item.classList.remove('active'));
@@ -51,3 +50,4 @@ function showScreen(screenId) {
     const activeId = sidebarMap[screenId];
     if(activeId) document.getElementById(activeId)?.classList.add('active');
 }
+
