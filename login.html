@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSE Analytics</title>
+    <link rel="stylesheet" href="login/style.css">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,900,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    
+</head>
+<body>
+    <div class="main-canvas">
+        
+        <div id="login-screen" class="login-card">
+            <h1>Login</h1>
+            <form id="loginForm">
+                <div class="input-group">
+                    <i data-lucide="user" class="input-icon"></i>
+                    <input type="text" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <i data-lucide="lock" class="input-icon"></i>
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <div class="options">
+                    <label class="remember-me"><input type="checkbox"> Remember Me</label>
+                    <a href="#" class="forgot-password" onclick="showScreen('signup-screen')">Forgot Password?</a>
+                </div>
+                <button type="submit" class="login-btn" onclick="showScreen('dashboard-screen')">Log In</button>
+            </form>
+            <div class="footer-text">Don't have an account? <a href="#" onclick="showScreen('register-screen')">Register</a></div>
+        </div>
+
+        <div id="register-screen" class="login-card" style="display: none;">
+            <h1>Register</h1>
+            <form id="registerForm">
+                <div class="input-group">
+                    <i data-lucide="user" class="input-icon"></i>
+                    <input type="text" placeholder="Full Name" required>
+                </div>
+                <div class="input-group">
+                    <i data-lucide="mail" class="input-icon"></i>
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+                <div class="input-group">
+                    <i data-lucide="lock" class="input-icon"></i>
+                    <input type="password" placeholder="Create Password" required>
+                </div>
+                <button type="submit" class="login-btn">Create Account</button>
+            </form>
+            <div class="footer-text">Already have an account? <a href="#" onclick="showScreen('login-screen')">Login</a></div>
+        </div>
+
+        <div id="signup-screen" class="login-card" style="display: none;">
+            <h2 class="brand-title">JSE Analytics</h2>
+            <h1>Sign Up</h1>
+            <form onsubmit="event.preventDefault(); showScreen('verify-screen')">
+                <div class="input-group">
+                    <i data-lucide="mail" class="input-icon"></i>
+                    <input type="email" placeholder="Enter Email" required>
+                </div>
+                <button type="submit" class="login-btn">Verify</button>
+            </form>
+            <div class="footer-text"><a href="#" onclick="showScreen('login-screen')">Back to Login</a></div>
+        </div>
+
+        <div id="verify-screen" class="login-card" style="display: none;">
+            <div class="footer-text"><a href="#" onclick="showScreen('login-screen')">Back to Login</a></div>
+            <h2 class="brand-title">JSE Analytics</h2>
+            <h1>Verify Code</h1>
+            <p class="subtitle">An authentication code has been sent to your email</p>
+            <form>
+                <div class="input-group">
+                    <i data-lucide="shield-check" class="input-icon"></i>
+                    <input type="text" placeholder="Enter Code" required>
+                </div>
+                <button type="submit" class="login-btn">Reset Password</button>
+            </form>
+            <div class="footer-text"><a href="#" onclick="showScreen('signup-screen')">Resend Code</a></div>
+        </div>
+
+        <div id="companies-screen" class="dashboard-container" style="display: none;">
+            <aside class="sidebar">
+                <div class="sidebar-item" onclick="showScreen('dashboard-screen')"><i data-lucide="layout-dashboard"></i> Dashboard</div>
+                <div class="sidebar-item active"><i data-lucide="building-2"></i> Companies</div>
+                <div class="sidebar-item"><i data-lucide="credit-card"></i> Subscriptions</div>
+                <div class="sidebar-item"><i data-lucide="users"></i> Staff</div>
+                <div class="sidebar-item"><i data-lucide="bar-chart-3"></i> Reports</div>
+                <div class="sidebar-item"><i data-lucide="settings"></i> Settings</div>
+                <div class="sidebar-footer"><i data-lucide="help-circle"></i> Help & Support</div>
+            </aside>
+        
+            <main class="dashboard-main">
+                <header class="dashboard-header">
+                    <div class="search-bar">
+                        <i data-lucide="search"></i>
+                        <input type="text" placeholder="Search">
+                    </div>
+                    <div class="header-icons">
+                        <i data-lucide="bell"></i>
+                        <div class="user-avatar">L</div>
+                    </div>
+                </header>
+        
+                <section class="table-box full-table">
+                    <table class="companies-table">
+                        <thead>
+                            <tr>
+                                <th>Company name</th>
+                                <th>Office No.</th>
+                                <th>Email</th>
+                                <th>Company Logo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Azania Chartered Account and Associates</td>
+                                <td>012 004 1530</td>
+                                <td>info@azaniaca.co.za</td>
+                                <td><img src="images/azania.png" alt="Azania Logo" class="table-logo"></td>
+                            </tr>
+                            <tr>
+                                <td>BlueMachines Solutions</td>
+                                <td>0800 014 942</td>
+                                <td>info@bluebean-software.com</td>
+                                <td><img src="images/bluemachines.gif" alt="BlueMachines Logo" class="table-logo"></td>
+                            </tr>
+                            <tr>
+                                <td>FinTech Africa Group</td>
+                                <td>+27 11 879 5700</td>
+                                <td>info@fintech-group.com</td>
+                                <td><img src=images/fintech.JFIF alt="FinTech Logo" class="table-logo"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="add-company-btn">Add Company</button>
+                </section>
+            </main>
+        </div>
+
+        <div id="dashboard-screen" class="dashboard-container" style="display: none;">
+            <aside class="sidebar">
+                <div class="sidebar-item active"><i data-lucide="layout-dashboard"></i> Dashboard</div>
+                <div class="sidebar-item" id="nav-companies" onclick="showScreen('companies-screen')">
+                    <i data-lucide="building-2"></i> Companies
+                </div>
+                <div class="sidebar-item" id="nav-companies" onclick="showScreen('subscriptions-screen')">
+                    <i data-lucide="building-2"></i> Subscriptions
+                </div>
+                <div class="sidebar-item" id="nav-companies" onclick="showScreen('staff-screen')">
+                    <i data-lucide="building-2"></i> Staff
+                </div>
+                <div class="sidebar-item" id="nav-companies" onclick="showScreen('reports-screen')">
+                    <i data-lucide="building-2"></i> Reports
+                </div>
+                <div class="sidebar-item"><i data-lucide="settings"></i> Settings</div>
+                <div class="sidebar-footer"><i data-lucide="help-circle"></i> Help & Support</div>
+            </aside>
+        
+            <main class="dashboard-main">
+                <header class="dashboard-header">
+                    <div class="search-bar">
+                        <i data-lucide="search"></i>
+                        <input type="text" placeholder="Search">
+                    </div>
+                    <div class="header-icons">
+                        <i data-lucide="bell"></i>
+                        <div class="user-avatar">L</div>
+                    </div>
+                </header>
+        
+                <section class="stats-grid">
+                    <div class="stat-card">
+                        <p>Total Registered Companies</p>
+                        <div class="stat-value">245 <span class="trend down">-12% this month</span></div>
+                    </div>
+                    <div class="stat-card">
+                        <p>Active Companies</p>
+                        <div class="stat-value">198 <span class="trend up">+8% this month</span></div>
+                    </div>
+                    <div class="stat-card">
+                        <p>Monthly Revenue</p>
+                        <div class="stat-value">R56, 790 <span class="trend up">+5% this month</span></div>
+                    </div>
+                    <div class="stat-card">
+                        <p>System Users</p>
+                        <div class="stat-value">1, 560 <span class="trend down">-3% this month</span></div>
+                    </div>
+                </section>
+        
+                <section class="content-grid">
+                    <div class="chart-box">
+                        <h3>Monthly Company Registration</h3>
+                        <div style="height: 250px;">
+                            <canvas id="registrationChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-box">
+                        <h3>Company Subscription Plan</h3>
+                        <div style="height: 250px; display: flex; justify-content: center;">
+                            <canvas id="subscriptionChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+        
+                <section class="table-section">
+                    <div class="table-box">
+                        <h3>Recent Company Activity</h3>
+                        <table>
+                            <tr><th>Company name</th><th>Plan</th><th>Status</th><th>Joined Date</th></tr>
+                            <tr><td>GreenTech</td><td>Enterprise</td><td class="status-active">Active</td><td>Apr 22, 2024</td></tr>
+                            <tr><td>TUT</td><td>Standard</td><td class="status-active">Active</td><td>Jun 11, 2022</td></tr>
+                            <tr><td>Anglo American</td><td>Basic</td><td class="status-pending">Pending</td><td>Mar 02, 2025</td></tr>
+                        </table>
+                    </div>
+                    <div class="side-box">
+                        <h3>Active vs Suspended</h3>
+                        <div class="bar-stat">Active <span>140</span></div>
+                        <div class="bar-stat">Suspended <span>20</span></div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <div id="staff-screen" class="dashboard-container" style="display: none;">
+            <aside class="sidebar">
+                <div class="sidebar-item" onclick="showScreen('dashboard-screen')"><i data-lucide="layout-dashboard"></i> Dashboard</div>
+                <div class="sidebar-item" onclick="showScreen('companies-screen')"><i data-lucide="building-2"></i> Companies</div>
+                <div class="sidebar-item"><i data-lucide="credit-card"></i> Subscriptions</div>
+                <div class="sidebar-item active"><i data-lucide="users"></i> Staff</div>
+                <div class="sidebar-item"><i data-lucide="bar-chart-3"></i> Reports</div>
+                <div class="sidebar-item"><i data-lucide="settings"></i> Settings</div>
+                <div class="sidebar-footer"><i data-lucide="help-circle"></i> Help & Support</div>
+            </aside>
+        
+            <main class="dashboard-main">
+                <header class="dashboard-header">
+                    <div class="search-bar">
+                        <i data-lucide="search"></i>
+                        <input type="text" placeholder="Search">
+                    </div>
+                    <div class="header-icons">
+                        <i data-lucide="bell"></i>
+                        <div class="user-avatar">L</div>
+                    </div>
+                </header>
+        
+                <section class="table-box full-table">
+                    <h3>Staff Members</h3>
+                    <table class="staff-table">
+                        <thead>
+                            <tr>
+                                <th>Role</th>
+                                <th>Staff Member ID</th>
+                                <th>FullName</th>
+                                <th>Phone no.</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="role-badge">Admin</span></td>
+                                <td>123456784445</td>
+                                <td>Jason M</td>
+                                <td>0891104757</td>
+                                <td><i data-lucide="message-square" class="action-icon"></i></td>
+                            </tr>
+                            <tr><td><span class="role-badge">Admin</span></td><td>12345678</td><td>FullName</td><td>0112341585</td><td><i data-lucide="message-square" class="action-icon"></i></td></tr>
+                            <tr><td><span class="role-badge">Admin</span></td><td>12345678</td><td>FullName</td><td>0112341585</td><td><i data-lucide="message-square" class="action-icon"></i></td></tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="pagination">
+                        <button class="pag-btn"><i data-lucide="chevron-left"></i></button>
+                        <span class="pag-numbers">1 2 3 4 5 6 7 8</span>
+                        <button class="pag-btn active-page">1090 x 577</button>
+                        <span class="pag-numbers">14 15</span>
+                        <button class="pag-btn"><i data-lucide="chevron-right"></i></button>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <div id="subscriptions-screen" class="dashboard-container" style="display: none;">
+            <aside class="sidebar">
+                <div class="sidebar-item" onclick="showScreen('dashboard-screen')"><i data-lucide="layout-dashboard"></i> Dashboard</div>
+                <div class="sidebar-item" onclick="showScreen('companies-screen')"><i data-lucide="building-2"></i> Companies</div>
+                <div class="sidebar-item active" id="nav-subscriptions" onclick="showScreen('subscriptions-screen')"><i data-lucide="credit-card"></i> Subscriptions</div>
+                <div class="sidebar-item" id="nav-reports" onclick="showScreen('reports-screen')"><i data-lucide="bar-chart-3"></i> Reports</div>
+                <div class="sidebar-item"><i data-lucide="users"></i> Staff</div>
+                <div class="sidebar-item"><i data-lucide="settings"></i> Settings</div>
+                <div class="sidebar-footer"><i data-lucide="help-circle"></i> Help & Support</div>
+            </aside>
+            <main class="dashboard-main">
+                <header class="dashboard-header">
+                    <div class="search-bar"><i data-lucide="search"></i><input type="text" placeholder="Search"></div>
+                    <div class="user-avatar">L</div>
+                </header>
+                <section class="placeholder-content">
+                    <h1>Subscriptions</h1>
+                    <p>Details about subscription plans, billing, and renewals will be displayed here.</p>
+                </section>
+            </main>
+        </div>
+
+        <div id="reports-screen" class="dashboard-container" style="display: none;">
+            <aside class="sidebar">
+                <div class="sidebar-item" onclick="showScreen('dashboard-screen')"><i data-lucide="layout-dashboard"></i> Dashboard</div>
+                <div class="sidebar-item" onclick="showScreen('companies-screen')"><i data-lucide="building-2"></i> Companies</div>
+                <div class="sidebar-item" id="nav-subscriptions" onclick="showScreen('subscriptions-screen')"><i data-lucide="credit-card"></i> Subscriptions</div>
+                <div class="sidebar-item active" id="nav-reports" onclick="showScreen('reports-screen')"><i data-lucide="bar-chart-3"></i> Reports</div>
+                <div class="sidebar-item"><i data-lucide="users"></i> Staff</div>
+                <div class="sidebar-item"><i data-lucide="settings"></i> Settings</div>
+                <div class="sidebar-footer"><i data-lucide="help-circle"></i> Help & Support</div>
+            </aside>
+            <main class="dashboard-main">
+                <header class="dashboard-header">
+                    <div class="search-bar"><i data-lucide="search"></i><input type="text" placeholder="Search"></div>
+                    <div class="user-avatar">L</div>
+                </header>
+                <section class="placeholder-content">
+                    <h1>Reports</h1>
+                    <p>Access and generate various analytics reports from this section.</p>
+                </section>
+            </main>
+        </div>
+
+    </div>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+    
+        function showScreen(screenId) {
+            // Hide both cards and dashboard
+            document.querySelectorAll('.login-card, .dashboard-container').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            const target = document.getElementById(screenId);
+            if (screenId === 'dashboard-screen') {
+                target.style.display = 'flex';
+                // Change background to match dashboard light grey-blue
+                document.body.style.backgroundColor = "#F0F5F9";
+            } else {
+                target.style.display = 'flex';
+                document.body.style.backgroundColor = "#FFFFFF";
+            }
+        }
+    
+        // --- CHART INITIALIZATION ---
+    
+        // 1. Line Chart: Monthly Company Registration
+        const ctxLine = document.getElementById('registrationChart').getContext('2d');
+        new Chart(ctxLine, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Registrations',
+                    data: [50, 150, 120, 180, 250, 200],
+                    borderColor: '#7C3AED', // Purple line
+                    backgroundColor: 'rgba(124, 58, 237, 0.1)',
+                    tension: 0.4, // Smooth curve
+                    fill: true,
+                    pointRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, grid: { display: false } },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+    
+        // 2. Doughnut Chart: Subscription Plan
+        const ctxPie = document.getElementById('subscriptionChart').getContext('2d');
+        new Chart(ctxPie, {
+            type: 'doughnut',
+            data: {
+                labels: ['Basic', 'Standard', 'Enterprise'],
+                datasets: [{
+                    data: [65, 15, 20],
+                    backgroundColor: ['#0EA5E9', '#A855F7', '#EF4444'], // Blue, Purple, Red
+                    hoverOffset: 4,
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '70%', // Makes it a thin ring like the screenshot
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: { usePointStyle: true, boxWidth: 10 }
+                    }
+                }
+            }
+        });
+
+        function showScreen(screenId) {
+    document.querySelectorAll('.login-card, .dashboard-container').forEach(el => {
+        el.style.display = 'none';
+    });
+    
+    const target = document.getElementById(screenId);
+    if (target) {
+        target.style.display = 'flex';
+        
+        // Refresh icons whenever a new screen is shown
+        lucide.createIcons();
+    }
+
+    // Set background color based on view
+    const isDashboardView = ['dashboard-screen', 'companies-screen', 'staff-screen'].includes(screenId);
+    document.body.style.backgroundColor = isDashboardView ? "#F0F5F9" : "#FFFFFF";
+}
+    </script>
+</body>
+</html>
