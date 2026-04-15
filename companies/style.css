@@ -1,0 +1,183 @@
+/* --- Global Styles --- */
+:root {
+    --sidebar-bg: #003366; /* Deep blue from screenshot */
+    --active-item: #002244;
+    --text-primary: #001B3D;
+    --text-muted: #64748B;
+    --table-header-blue: #0EA5E9; /* Sky blue from screenshot headers */
+    --bg-main: #F8FAFC;
+    --white: #FFFFFF;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: var(--bg-main);
+    font-family: 'Inter', sans-serif; /* Closest to Figma default */
+}
+
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+    width: 240px;
+    background-color: var(--sidebar-bg);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+}
+
+.sidebar-item {
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s;
+}
+
+.sidebar-item i {
+    width: 20px;
+    height: 20px;
+}
+
+.sidebar-item.active {
+    background-color: var(--active-item);
+    color: white;
+    font-weight: 600;
+}
+
+.sidebar-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 20px 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* --- Main Content --- */
+.dashboard-main {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.dashboard-header {
+    background: var(--white);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: flex-end; /* Align icons to right as per Figma */
+    align-items: center;
+    gap: 25px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.search-bar {
+    background: #F1F5F9;
+    border-radius: 20px;
+    padding: 8px 15px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    margin-right: auto; /* Pushes other icons to the right */
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    outline: none;
+    margin-left: 10px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-circle {
+    width: 35px;
+    height: 35px;
+    background-color: #000;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* --- Table Section --- */
+.table-box {
+    padding: 40px;
+}
+
+.table-header-flex {
+    margin-bottom: 20px;
+}
+
+.table-header-flex h2 {
+    color: #64748B;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.companies-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: transparent;
+}
+
+.companies-table th {
+    color: var(--table-header-blue);
+    font-weight: 400;
+    font-size: 14px;
+    text-align: left;
+    padding: 15px 10px;
+}
+
+.companies-table td {
+    padding: 20px 10px;
+    font-size: 14px;
+    color: #1E293B;
+    border-bottom: 1px dotted #CBD5E1; /* Dotted lines as per typical wireframes */
+}
+
+.companies-table tr:last-child td {
+    border-bottom: none;
+}
+
+.table-logo {
+    height: 35px;
+    max-width: 100px;
+    object-fit: contain;
+}
+
+/* --- Add Company Button --- */
+.add-company-btn {
+    background-color: #001B3D;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-top: 30px;
+}

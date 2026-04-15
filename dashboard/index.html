@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Owner Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+
+        <div class="sidebar-item active" onclick="navigate('dashboard/dashboard.html')">
+            <i data-lucide="layout-dashboard"></i> Dashboard
+        </div>
+    
+        <div class="sidebar-item" onclick="navigate('../companies/index.html')">
+            <i data-lucide="building-2"></i> Companies
+        </div>
+    
+        <div class="sidebar-item" onclick="navigate('../subscriptions/index.html')">
+            <i data-lucide="credit-card"></i> Subscriptions
+        </div>
+    
+        <div class="sidebar-item" onclick="navigate('../staff/index.html')">
+            <i data-lucide="users"></i> Staff
+        </div>
+    
+        <div class="sidebar-item" onclick="navigate('reports/reports.html')">
+            <i data-lucide="bar-chart-3"></i> Reports
+        </div>
+    
+        <div class="sidebar-item" onclick="navigate('settings/settings.html')">
+            <i data-lucide="settings"></i> Settings
+        </div>
+    
+        <div class="sidebar-footer">
+            <div class="sidebar-item" onclick="navigate('help/help.html')">
+                <i data-lucide="help-circle"></i> Help & Support
+            </div>
+        </div>
+    
+    </aside>
+
+<main class="main-content">
+
+<header class="header">
+    <div class="search-container">
+        <i data-lucide="search" class="search-icon" size="18"></i>
+        <input type="text" placeholder="Search">
+    </div>
+
+    <div class="header-icons">
+        <i data-lucide="bell"></i>
+        <i data-lucide="user-circle" size="32"></i>
+    </div>
+</header>
+
+<div class="dashboard-body">
+
+<section class="stats-row">
+    <div class="stat-card">
+        <p>Total Registered Companies</p>
+        <div class="stat-value">245 <span class="trend down">-12% this month</span></div>
+    </div>
+
+    <div class="stat-card">
+        <p>Active Companies</p>
+        <div class="stat-value">198 <span class="trend up">+8% this month</span></div>
+    </div>
+
+    <div class="stat-card">
+        <p>Monthly Revenue</p>
+        <div class="stat-value">R56,790 <span class="trend up">+5% this month</span></div>
+    </div>
+
+    <div class="stat-card">
+        <p>System Users</p>
+        <div class="stat-value">1,560 <span class="trend down">-3% this month</span></div>
+    </div>
+</section>
+
+<section class="grid-layout">
+    <div class="card">
+        <h3>Monthly Company Registration</h3>
+        <canvas id="regChart" height="200"></canvas>
+    </div>
+
+    <div class="card">
+        <h3>Company Subscription Plan</h3>
+        <canvas id="subChart" height="200"></canvas>
+    </div>
+</section>
+
+<section class="grid-layout">
+
+<div class="card">
+    <h3>Recent Company Activity</h3>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Company</th>
+            <th>Plan</th>
+            <th>Status</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>GreenTech</td>
+            <td style="color: var(--accent-blue)">Enterprise</td>
+            <td class="active-text">Active</td>
+            <td>Apr 22, 2024</td>
+        </tr>
+
+        <tr>
+            <td>TUT</td>
+            <td style="color: var(--accent-blue)">Standard</td>
+            <td class="active-text">Active</td>
+            <td>Jun 11, 2022</td>
+        </tr>
+
+        <tr>
+            <td>Anglo American</td>
+            <td style="color: var(--warning-orange)">Basic</td>
+            <td class="pending-text">Pending</td>
+            <td>Mar 02, 2025</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="card">
+    <h3>Active vs Suspended</h3>
+
+    <div class="progress-item">
+        <div class="progress-label">
+            <span>Active</span>
+            <span>140</span>
+        </div>
+        <div class="progress-bg">
+            <div class="progress-fill" style="width:85%; background:var(--success-green);"></div>
+        </div>
+    </div>
+
+    <div class="progress-item">
+        <div class="progress-label">
+            <span>Suspended</span>
+            <span>20</span>
+        </div>
+        <div class="progress-bg">
+            <div class="progress-fill" style="width:15%; background:var(--error-red);"></div>
+        </div>
+    </div>
+</div>
+
+</section>
+
+</div>
+</main>
+
+<script src="./scripts.js"></script>
+
+</body>
+</html>
