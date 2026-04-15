@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Management - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+    <div id="companies-screen" class="dashboard-container">
+        <aside class="sidebar">
+
+            <div class="sidebar-item" onclick="goTo('../dashboard.html')">
+                <i data-lucide="layout-dashboard"></i> Dashboard
+            </div>
+        
+            <div class="sidebar-item active" onclick="goTo('companies.html')">
+                <i data-lucide="building-2"></i> Companies
+            </div>
+        
+            <div class="sidebar-item" onclick="goTo('../subscriptions/subscriptions.html')">
+                <i data-lucide="credit-card"></i> Subscriptions
+            </div>
+        
+            <div class="sidebar-item" onclick="goTo('../staff/staff.html')">
+                <i data-lucide="users"></i> Staff
+            </div>
+        
+            <div class="sidebar-item" onclick="goTo('../reports/reports.html')">
+                <i data-lucide="bar-chart-3"></i> Reports
+            </div>
+        
+            <div class="sidebar-item" onclick="goTo('../settings/settings.html')">
+                <i data-lucide="settings"></i> Settings
+            </div>
+        
+            <div class="sidebar-footer">
+                <div class="sidebar-item" onclick="goTo('../help/help.html')">
+                    <i data-lucide="help-circle"></i> Help & Support
+                </div>
+            </div>
+        
+        </aside>
+    
+        <main class="dashboard-main">
+            <header class="header">
+                <div class="search-container">
+                    <i data-lucide="search" class="search-icon" size="18"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+            
+                <div class="header-icons">
+                    <i data-lucide="bell"></i>
+                    <i data-lucide="user-circle" size="32"></i>
+                </div>
+            </header>
+    
+            <section class="table-box">
+                <div class="table-header-flex">
+                    <h2>Companies</h2>
+                </div>
+
+                <table class="companies-table">
+                    <thead>
+                        <tr>
+                            <th>Company name</th>
+                            <th>Office No.</th>
+                            <th>Email</th>
+                            <th>Company Logo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Azania Chartered Account and Associates</td>
+                            <td>012 004 1530</td>
+                            <td>info@azaniaca.co.za</td>
+                            <td><img src="../images/azania.png" alt="Azania" class="table-logo"></td>
+                        </tr>
+                        <tr>
+                            <td>BlueMachines Solutions</td>
+                            <td>0800 014 942</td>
+                            <td>info@bluebean-software.com</td>
+                            <td><img src="../images/bluemachines.gif" alt="BlueMachines" class="table-logo"></td>
+                        </tr>
+                        <tr>
+                            <td>FinTech Africa Group</td>
+                            <td>+27 11 879 5700</td>
+                            <td>info@fintech-group.com</td>
+                            <td><img src="../images/fintech.jfif" alt="FinTech" class="table-logo"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button class="add-company-btn" onclick="window.location.href='../Add company/index.html'">
+                    Add Company
+                </button>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html> 
