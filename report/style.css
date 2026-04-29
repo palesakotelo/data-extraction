@@ -1,0 +1,117 @@
+/* Layout */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 230px;
+    background: #1e3a8a;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.sidebar a.active,
+.sidebar a:hover {
+    background: #3b82f6;
+}
+
+/* Main */
+.main {
+    flex: 1;
+    background: #f1f5f9;
+}
+
+/* Topbar */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: white;
+}
+
+.topbar input {
+    padding: 8px;
+    width: 250px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+/* Content */
+.content {
+    padding: 20px;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    background: #1e3a8a;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+/* Filters */
+.filters {
+    margin: 15px 0;
+}
+
+.filters button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px;
+    margin-right: 10px;
+    background: #e2e8f0;
+}
+
+.filters .active {
+    background: #1e3a8a;
+    color: white;
+}
+
+/* Cards */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+tr {
+    border-bottom: 1px solid #eee;
+}
+
+/* Colors */
+.green { color: green; }
+.blue { color: #2563eb; }
+.orange { color: orange; }

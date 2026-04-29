@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Portal | BlueMachines</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <div class="logo-icon"></div>
+                    <span class="logo-text">BlueMachines</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <p class="nav-label">Menu</p>
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fa-solid fa-building"></i> Companies</a></li>
+                    <li><a href="#"><i class="fa-solid fa-receipt"></i> Subscriptions</a></li>
+                    <li><a href="#"><i class="fa-solid fa-users"></i> Staff</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chart-line"></i> Reports</a></li>
+                    <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="#" class="active"><i class="fa-solid fa-circle-question"></i> Help & Support</a>
+            </div>
+        </aside>
+
+        <main class="main-layout">
+            <header class="top-nav">
+                <div class="search-wrapper">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search for help, documents, or settings...">
+                </div>
+                <div class="user-controls">
+                    <div class="icon-btn"><i class="fa-solid fa-bell"></i><span class="badge"></span></div>
+                    <div class="profile-pill">
+                        <span>L</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-container">
+                <section class="hero-section">
+                    <h1>Help & Support</h1>
+                    <p class="subtitle">How can we assist you today?</p>
+                </section>
+
+                <div class="dashboard-grid">
+                    <div class="support-cards">
+                        <div class="info-card">
+                            <ul class="accordion">
+                                <li class="accordion-item">
+                                    <div class="accordion-header">
+                                        <i class="fa-solid fa-wallet"></i>
+                                        <span>Billing and Payments</span>
+                                        <i class="fa-solid fa-chevron-right arrow"></i>
+                                    </div>
+                                    <div class="accordion-body">
+                                        <p>Manage your payment methods, view historical invoices, and update billing addresses for your account.</p>
+                                    </div>
+                                </li>
+                                <li class="accordion-item">
+                                    <div class="accordion-header">
+                                        <i class="fa-solid fa-file-invoice"></i>
+                                        <span>Subscription Plans</span>
+                                        <i class="fa-solid fa-chevron-right arrow"></i>
+                                    </div>
+                                    <div class="accordion-body">
+                                        <p>Compare tier benefits and manage your current active subscriptions and renewals.</p>
+                                    </div>
+                                </li>
+                                <li class="accordion-item">
+                                    <div class="accordion-header">
+                                        <i class="fa-solid fa-user-gear"></i>
+                                        <span>User Management</span>
+                                        <i class="fa-solid fa-chevron-right arrow"></i>
+                                    </div>
+                                    <div class="accordion-body">
+                                        <p>Control team access levels, invite new members, and manage department permissions.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <ul class="accordion">
+                                <li class="accordion-item">
+                                    <div class="accordion-header">
+                                        <i class="fa-solid fa-plus-square"></i>
+                                        <span>Add new company</span>
+                                        <i class="fa-solid fa-chevron-right arrow"></i>
+                                    </div>
+                                    <div class="accordion-body">
+                                        <p>Onboard a new business entity to your dashboard to start tracking their performance.</p>
+                                    </div>
+                                </li>
+                                <li class="accordion-item">
+                                    <div class="accordion-header">
+                                        <i class="fa-solid fa-file-export"></i>
+                                        <span>Generate report</span>
+                                        <i class="fa-solid fa-chevron-right arrow"></i>
+                                    </div>
+                                    <div class="accordion-body">
+                                        <p>Create customized data exports in PDF or Excel formats for your quarterly reviews.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="chat-sidebar">
+                        <div class="chat-widget">
+                            <div class="chat-content">
+                                <p>Ask our AI assistant...</p>
+                            </div>
+                            <div class="chat-input-area">
+                                <span class="placeholder">What would you like to know?</span>
+                                <div class="chat-footer">
+                                    <div class="footer-icons">
+                                        <i class="fa-solid fa-image"></i>
+                                        <i class="fa-solid fa-code"></i>
+                                        <i class="fa-solid fa-microphone"></i>
+                                    </div>
+                                    <button class="btn-send"><i class="fa-solid fa-arrow-up"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

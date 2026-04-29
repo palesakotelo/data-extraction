@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Staff Management - Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+    <div class="sidebar-item" onclick="navigate('../dashboard/index.html')">
+      <i data-lucide="layout-dashboard"></i> Dashboard
+    </div>
+  
+    <div class="sidebar-item" onclick="navigate('../companies/index.html')">
+      <i data-lucide="building-2"></i> Companies
+    </div>
+  
+    <div class="sidebar-item" onclick="navigate('../subscriptions/index.html')">
+      <i data-lucide="credit-card"></i> Subscriptions
+    </div>
+  
+    <div class="sidebar-item active" onclick="navigate('../staff/index.html')">
+      <i data-lucide="users"></i> Staff
+    </div>
+  
+    <div class="sidebar-item" onclick="navigate('../reports/index.html')">
+      <i data-lucide="bar-chart-3"></i> Reports
+    </div>
+  
+    <div class="sidebar-item" onclick="navigate('../settings/index.html')">
+      <i data-lucide="settings"></i> Settings
+    </div>
+  
+    <div class="sidebar-footer">
+      <div class="sidebar-item" onclick="navigate('../help/index.html')">
+        <i data-lucide="help-circle"></i> Help & Support
+      </div>
+    </div>
+  
+    </aside>
+
+
+<!-- Main -->
+
+<main class="dashboard-main">
+
+<header class="header">
+
+<div class="search-container">
+<i data-lucide="search" class="search-icon"></i>
+<input type="text" placeholder="Search staff...">
+</div>
+
+<div class="header-icons">
+<i data-lucide="bell"></i>
+<i data-lucide="user-circle" size="32"></i>
+</div>
+
+</header>
+
+
+<section class="table-box">
+
+<div class="table-header-flex">
+<h2>Staff Members</h2>
+</div>
+
+
+<table class="staff-table">
+
+<thead>
+<tr>
+<th>Role</th>
+<th>Staff ID</th>
+<th>Full Name</th>
+<th>Phone</th>
+<th>Action</th>
+</tr>
+</thead>
+
+
+<tbody id="staffTable">
+
+<tr>
+<td><span class="role">Admin</span></td>
+<td>123456784445</td>
+<td>Jason M</td>
+<td>0891104757</td>
+
+<td class="action-buttons">
+
+<button class="icon-btn edit-btn" onclick="editUser(this)">
+<i data-lucide="pencil"></i>
+</button>
+
+<button class="icon-btn delete-btn" onclick="deleteUser(this)">
+<i data-lucide="trash-2"></i>
+</button>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td><span class="role">Admin</span></td>
+<td>12345678</td>
+<td>Jane Smith</td>
+<td>0812541585</td>
+
+<td class="action-buttons">
+
+<button class="icon-btn edit-btn" onclick="editUser(this)">
+<i data-lucide="pencil"></i>
+</button>
+
+<button class="icon-btn delete-btn" onclick="deleteUser(this)">
+<i data-lucide="trash-2"></i>
+</button>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td><span class="role">Admin</span></td>
+<td>98765432</td>
+<td>Michael Brown</td>
+<td>07190458104</td>
+
+<td class="action-buttons">
+
+<button class="icon-btn edit-btn" onclick="editUser(this)">
+<i data-lucide="pencil"></i>
+</button>
+
+<button class="icon-btn delete-btn" onclick="deleteUser(this)">
+<i data-lucide="trash-2"></i>
+</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+</section>
+
+</main>
+
+</div>
+
+<script src="./scripts.js"></script>
+
+</body>
+</html>

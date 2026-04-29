@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subscriptions Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <aside class="sidebar">
+
+        <div class="sidebar-item" onclick="navigate('../dashboard/index.html')">
+          <i data-lucide="layout-dashboard"></i> Dashboard
+        </div>
+      
+        <div class="sidebar-item" onclick="navigate('../companies/index.html')">
+          <i data-lucide="building-2"></i> Companies
+        </div>
+      
+        <div class="sidebar-item active" onclick="navigate('../subscriptions/index.html')">
+          <i data-lucide="credit-card"></i> Subscriptions
+        </div>
+      
+        <div class="sidebar-item" onclick="navigate('../staff/index.html')">
+          <i data-lucide="users"></i> Staff
+        </div>
+      
+        <div class="sidebar-item" onclick="navigate('../reports/index.html')">
+          <i data-lucide="bar-chart-3"></i> Reports
+        </div>
+      
+        <div class="sidebar-item" onclick="navigate('../settings/index.html')">
+          <i data-lucide="settings"></i> Settings
+        </div>
+      
+        <div class="sidebar-footer">
+          <div class="sidebar-item" onclick="navigate('../help/index.html')">
+            <i data-lucide="help-circle"></i> Help & Support
+          </div>
+        </div>
+      
+        </aside>
+
+<div class="main">
+
+<div class="header">
+  <input class="search" placeholder="Search">
+  <div class="icons">
+    <i data-lucide="bell"></i>
+    <i data-lucide="user"></i>
+  </div>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h2>Subscriptions</h2>
+
+<table>
+<thead>
+<tr>
+<th>Company</th>
+<th>Plan</th>
+<th>Status</th>
+<th>Billing</th>
+<th>Date</th>
+<th>Payment</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>BlueMachines LTD</td>
+<td>Enterprise</td>
+<td class="status-active">Active</td>
+<td>Monthly</td>
+<td>Jan 22</td>
+<td class="status-active">Paid</td>
+</tr>
+
+<tr>
+<td>GreenTech</td>
+<td>Standard</td>
+<td class="status-active">Active</td>
+<td>Monthly</td>
+<td>Dec 20</td>
+<td class="status-active">Paid</td>
+</tr>
+
+<tr>
+<td>NovaSoft</td>
+<td>Basic</td>
+<td class="status-pending">Pending</td>
+<td>Monthly</td>
+<td>Apr 18</td>
+<td class="status-pending">Due</td>
+</tr>
+
+<tr>
+<td>Horizon Rentals</td>
+<td>Enterprise</td>
+<td class="status-suspended">Suspended</td>
+<td>Yearly</td>
+<td>Sep 5</td>
+<td class="status-suspended">Overdue</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div>
+
+<div class="card plan">
+<h3>Plans & Pricing</h3>
+<p><strong>Basic</strong></p>
+<div class="plan-price">$15</div>
+<p>Per Month</p>
+
+<ul>
+<li>50 Companies</li>
+<li>600 Users</li>
+</ul>
+
+<button class="btn">Upgrade</button>
+</div>
+
+<div class="card chart-card">
+<h3>Subscriptions by Plan</h3>
+<canvas id="chart"></canvas>
+
+<div class="legend">
+<div><span class="dot basic"></span> Basic</div>
+<div><span class="dot standard"></span> Standard</div>
+<div><span class="dot enterprise"></span> Enterprise</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>

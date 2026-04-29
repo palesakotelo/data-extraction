@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Company Profile</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <aside class="sidebar">
+
+        <div class="sidebar-item" onclick="navigate('../../dashboard/index.html')">
+          <i data-lucide="layout-dashboard"></i> Dashboard
+        </div>
+      
+        <div class="sidebar-item" onclick="navigate('../../companies/index.html')">
+          <i data-lucide="building-2"></i> Companies
+        </div>
+      
+        <div class="sidebar-item" onclick="navigate('../../subscriptions/index.html')">
+          <i data-lucide="credit-card"></i> Subscriptions
+        </div>
+      
+        <div class="sidebar-item" onclick="navigate('../../staff/index.html')">
+          <i data-lucide="users"></i> Staff
+        </div>
+      
+        <div class="sidebar-item" onclick="navigate('../../reports/index.html')">
+          <i data-lucide="bar-chart-3"></i> Reports
+        </div>
+      
+        <div class="sidebar-item" onclick="navigate('../../settings/index.html')">
+          <i data-lucide="settings"></i> Settings
+        </div>
+      
+        <div class="sidebar-footer">
+          <div class="sidebar-item" onclick="navigate('../../help/index.html')">
+            <i data-lucide="help-circle"></i> Help & Support
+          </div>
+        </div>
+      
+        </aside>
+
+<main class="main">
+
+    <header class="header">
+
+        <div class="header-left"></div>
+      
+        <div class="search-wrapper">
+          <i data-lucide="search" class="search-icon"></i>
+          <input type="text" placeholder="Search">
+        </div>
+      
+        <div class="icons">
+          <i data-lucide="bell"></i>
+          <i data-lucide="user"></i>
+        </div>
+      
+      </header>
+
+<div class="content">
+
+<!-- LEFT -->
+<div class="left">
+
+<div class="profile-header">
+  <img src="../../images/bluemachines.gif" class="logo">
+</div>
+
+<h2>Overview</h2>
+<p class="text">
+Azania Chartered Account & Associates is a premier professional services firm delivering
+comprehensive accounting, audit, and advisory solutions across Africa.
+</p>
+
+<h3>Services</h3>
+<ul class="services">
+  <li>Tax Advisory</li>
+  <li>Financial Audits</li>
+  <li>Financial Management</li>
+  <li>Business Assessment</li>
+  <li>Medium Audits</li>
+</ul>
+
+<button class="btn small">Edit Profile</button>
+
+</div>
+
+<!-- CENTER -->
+<div class="center">
+<h2>Key Personnel</h2>
+
+<div class="person">
+  <img src="https://randomuser.me/api/portraits/women/44.jpg">
+  <div>
+    <p class="name">Azania Mokoena</p>
+    <span>Analyst</span>
+  </div>
+</div>
+
+<div class="person">
+  <img src="https://randomuser.me/api/portraits/men/32.jpg">
+  <div>
+    <p class="name">John Smith</p>
+    <span>CEO</span>
+  </div>
+</div>
+
+<div class="person">
+  <img src="https://randomuser.me/api/portraits/men/45.jpg">
+  <div>
+    <p class="name">Jelly Smith</p>
+    <span>Administrator</span>
+  </div>
+</div>
+
+<div class="person">
+  <img src="https://randomuser.me/api/portraits/men/55.jpg">
+  <div>
+    <p class="name">Sipho Mthanti</p>
+    <span>Manager</span>
+  </div>
+</div>
+
+</div>
+
+<!-- RIGHT -->
+<div class="right">
+<h2>Contact Details</h2>
+
+<p><i data-lucide="phone"></i> +27 11 044 1530</p>
+<p><i data-lucide="phone"></i> +27 11 044 1530</p>
+<p><i data-lucide="mail"></i> info@azania.com</p>
+<p><i data-lucide="globe"></i> www.azania.com</p>
+
+</div>
+
+</div>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

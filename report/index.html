@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reports</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2 class="logo">Bluemachines</h2>
+
+        <nav>
+            <a href="#"><i data-lucide="home"></i> Dashboard</a>
+            <a href="#"><i data-lucide="building"></i> Companies</a>
+            <a href="#"><i data-lucide="refresh-ccw"></i> Subscriptions</a>
+            <a href="#"><i data-lucide="users"></i> Staff</a>
+            <a href="#" class="active"><i data-lucide="bar-chart-3"></i> Reports</a>
+            <a href="#"><i data-lucide="settings"></i> Settings</a>
+        </nav>
+
+        <div class="bottom">
+            <a href="#"><i data-lucide="help-circle"></i> Help & Support</a>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <input type="text" placeholder="Search">
+            <div class="icons">
+                <i data-lucide="bell"></i>
+                <div class="profile"></div>
+            </div>
+        </header>
+
+        <!-- CONTENT -->
+        <section class="content">
+
+            <div class="header-row">
+                <h2>Reports</h2>
+                <button class="btn">Export PDF</button>
+            </div>
+
+            <!-- FILTERS -->
+            <div class="filters">
+                <button class="active">Last 7 Days</button>
+                <button>Last 30 Days</button>
+                <button>Last 90 Days</button>
+                <button>Custom</button>
+            </div>
+
+            <!-- CHART -->
+            <div class="card">
+                <h3>Monthly Revenue</h3>
+                <canvas id="chart"></canvas>
+            </div>
+
+            <!-- TABLE -->
+            <div class="card">
+                <h3>Company Activity Report</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Plan</th>
+                            <th>Status</th>
+                            <th>New Registrations</th>
+                            <th>Renewals</th>
+                            <th>Revenue</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Bluemachines LTD</td>
+                            <td class="blue">Enterprise</td>
+                            <td class="green">Active</td>
+                            <td>10</td>
+                            <td>1</td>
+                            <td>$425.09</td>
+                            <td>Apr 25</td>
+                        </tr>
+
+                        <tr>
+                            <td>GreenTech Corp.</td>
+                            <td class="green">Standard</td>
+                            <td class="green">Active</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>$552.90</td>
+                            <td>Jan 25</td>
+                        </tr>
+
+                        <tr>
+                            <td>NovaSoft Inc.</td>
+                            <td class="blue">Basic</td>
+                            <td class="orange">Pending</td>
+                            <td>13</td>
+                            <td>1</td>
+                            <td>$321.09</td>
+                            <td>May 25</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+    </main>
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

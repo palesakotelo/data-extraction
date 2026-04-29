@@ -11,37 +11,50 @@
 <body>
 
     <div id="companies-screen" class="dashboard-container">
-        <aside class="sidebar">
-            <div class="sidebar-item" data-page="dashboard" onclick="go('../dashboard/dashboard.html')">Dashboard</div>
+            <aside class="sidebar">
 
-            <div class="sidebar-item" data-page="companies" onclick="go('../companies/companies.html')">Companies</div>
-
-            <div class="sidebar-item">
-                <i data-lucide="credit-card"></i> <span>Subscriptions</span>
+            <div class="sidebar-item" onclick="navigate('../dashboard/index.html')">
+              <i data-lucide="layout-dashboard"></i> Dashboard
             </div>
-            <div class="sidebar-item" data-page="staff" onclick="go('../staff/staff.html')">Staff</div>
-
-            <div class="sidebar-item">
-                <i data-lucide="bar-chart-3"></i> <span>Reports</span>
+          
+            <div class="sidebar-item active" onclick="navigate('companies/index.html')">
+              <i data-lucide="building-2"></i> Companies
             </div>
-            <div class="sidebar-item">
-                <i data-lucide="settings"></i> <span>Settings</span>
+          
+            <div class="sidebar-item" onclick="navigate('../subscriptions/index.html')">
+              <i data-lucide="credit-card"></i> Subscriptions
             </div>
-            
+          
+            <div class="sidebar-item" onclick="navigate('../staff/index.html')">
+              <i data-lucide="users"></i> Staff
+            </div>
+          
+            <div class="sidebar-item" onclick="navigate('../reports/index.html')">
+              <i data-lucide="bar-chart-3"></i> Reports
+            </div>
+          
+            <div class="sidebar-item" onclick="navigate('../settings/index.html')">
+              <i data-lucide="settings"></i> Settings
+            </div>
+          
             <div class="sidebar-footer">
-                <i data-lucide="help-circle"></i> <span>Help & Support</span>
+              <div class="sidebar-item" onclick="navigate('../help/index.html')">
+                <i data-lucide="help-circle"></i> Help & Support
+              </div>
             </div>
-        </aside>
+          
+            </aside>
     
         <main class="dashboard-main">
-            <header class="dashboard-header">
-                <div class="search-bar">
-                    <i data-lucide="search" size="16" color="#64748B"></i>
+            <header class="header">
+                <div class="search-container">
+                    <i data-lucide="search" class="search-icon" size="18"></i>
                     <input type="text" placeholder="Search">
                 </div>
+            
                 <div class="header-icons">
-                    <i data-lucide="bell" size="20" color="#000"></i>
-                    <div class="profile-circle">L</div>
+                    <i data-lucide="bell"></i>
+                    <i data-lucide="user-circle" size="32"></i>
                 </div>
             </header>
     
@@ -61,22 +74,27 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Azania Chartered Account and Associates</td>
+                            <td onclick="window.location.href='../company profile/index.html' " style="cursor:pointer;">
+                                Azania Chartered Account and Associates
+                              </td>
                             <td>012 004 1530</td>
                             <td>info@azaniaca.co.za</td>
-                            <td><img src="images/azania.png" alt="Azania" class="table-logo"></td>
+                            <td><img src="../images/azania.png" alt="Azania" class="table-logo"></td>
                         </tr>
                         <tr>
-                            <td>BlueMachines Solutions</td>
+                            <td onclick="window.location.href='../company profile/bluemachines/index.html' " style="cursor:pointer;">
+                                BlueMachines Solutions</td>
                             <td>0800 014 942</td>
                             <td>info@bluebean-software.com</td>
-                            <td><img src="images/bluemachines.gif" alt="BlueMachines" class="table-logo"></td>
+                            <td><img src="../images/bluemachines.gif" alt="BlueMachines" class="table-logo"></td>
                         </tr>
                         <tr>
-                            <td>FinTech Africa Group</td>
+                            <td onclick="window.location.href='../company profile/fintech/index.html' " style="cursor:pointer;">
+                                    FinTech Africa Group
+                                </td>
                             <td>+27 11 879 5700</td>
                             <td>info@fintech-group.com</td>
-                            <td><img src="images/fintech.JFIF" alt="FinTech" class="table-logo"></td>
+                            <td><img src="../images/fintech.jfif" alt="FinTech" class="table-logo"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -87,9 +105,6 @@
             </section>
         </main>
     </div>
-
-    <script>
-        lucide.createIcons();
-    </script>
+    <script src="./scripts.js"></script>
 </body>
-</html> 
+</html>  

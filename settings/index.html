@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings Page</title>
+<link rel="stylesheet" href="style.css">
+
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-item" onclick="navigate('../dashboard/index.html')">
+            <i data-lucide="layout-dashboard"></i> Dashboard
+        </div>
+    
+        <div class="sidebar-item" onclick="navigate('../companies/index.html')">
+            <i data-lucide="building-2"></i> Companies
+        </div>
+    
+        <div class="sidebar-item" onclick="navigate('../subscriptions/index.html')">
+            <i data-lucide="credit-card"></i> Subscriptions
+        </div>
+    
+        <div class="sidebar-item" onclick="navigate('../staff/index.html')">
+            <i data-lucide="users"></i> Staff
+        </div>
+    
+        <div class="sidebar-item" onclick="navigate('../reports/index.html')">
+            <i data-lucide="bar-chart-3"></i> Reports
+        </div>
+    
+        <div class="sidebar-item active" onclick="navigate('settings/index.html')">
+            <i data-lucide="settings"></i> Settings
+        </div>
+    
+        <div class="sidebar-footer">
+            <div class="sidebar-item" onclick="navigate('../help/index.html')">
+                <i data-lucide="help-circle"></i> Help & Support
+            </div>
+        </div>
+    
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOP BAR -->
+        <header class="header">
+            <div class="search-container">
+                <i data-lucide="search" class="search-icon" size="18"></i>
+                <input type="text" placeholder="Search">
+            </div>
+        
+            <div class="header-icons">
+                <i data-lucide="bell"></i>
+                <i data-lucide="user-circle" size="32"></i>
+            </div>
+        </header>
+
+        <!-- TABS -->
+        <div class="tabs">
+            <button class="tab active" data-tab="general">General</button>
+            <button class="tab" data-tab="security">Security</button>
+            <button class="tab" data-tab="notifications">Notifications</button>
+            <button class="tab" data-tab="subscription">Subscription</button>
+        </div>
+
+        <!-- GENERAL -->
+        <div class="card tab-content active" id="general">
+            <h3>Profile Information</h3>
+
+            <label>Full Name</label>
+            <input type="text" placeholder="Celumusa Langa">
+
+            <label>Email</label>
+            <input type="email" placeholder="info@bluemachines.com">
+
+            <label>Company Name</label>
+            <input type="text" placeholder="BlueMachines LTD">
+
+            <label>Phone Number</label>
+            <input type="text" placeholder="+27 123 456 678">
+
+            <label>Language</label>
+            <select>
+                <option>English (US)</option>
+                <option>English (UK)</option>
+            </select>
+        </div>
+
+        <!-- SECURITY -->
+        <div class="card tab-content" id="security">
+            <h3>Security Information</h3>
+
+            <div class="form-group">
+                <label>Change Password</label>
+                <input type="password" placeholder="Password">
+            </div>
+
+            <div class="form-group">
+                <label>Two-Factor Authentication</label>
+                <p class="enabled">Enabled</p>
+            </div>
+
+            <div class="form-group">
+                <label>Manage API Keys</label>
+                <select>
+                    <option>Manage API keys</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Login Activity</label>
+                <p class="activity">Last Login: 03 Mar, 2026</p>
+            </div>
+        </div>
+
+        <!-- NOTIFICATIONS -->
+<div class="card tab-content" id="notifications">
+    <h3>Notification Settings</h3>
+
+    <div class="notify-item">
+        <span>📍 New Company Registration</span>
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="notify-item">
+        <span>💳 Subscription Renewals</span>
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="notify-item">
+        <span>📄 Payment Reminders</span>
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="notify-item">
+        <span>⚙️ System Alerts</span>
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="notify-item">
+        <span>📊 Weekly Reports</span>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+        </label>
+    </div>
+</div>
+
+    <!-- SUBSCRIPTION -->
+<div class="card tab-content" id="subscription">
+    <h3>Subscription Settings</h3>
+
+    <div class="setting-row">
+        <span>Auto-Renew Subscriptions</span>
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="setting-row">
+        <span>Grace Period (days)</span>
+        <span class="value">5</span>
+    </div>
+
+    <div class="setting-row">
+        <span>Subscription Total Period</span>
+        <span class="value">14 Days</span>
+    </div>
+
+    <div class="setting-row">
+        <span>Email Notifications</span>
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+    </div>
+</div>
+
+    </main>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

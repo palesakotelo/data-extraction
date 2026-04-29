@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edit Profile</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+    <div class="sidebar-item" onclick="goTo('../dashboard.html')">
+        <i data-lucide="layout-dashboard"></i> Dashboard
+    </div>
+
+    <div class="sidebar-item active" onclick="goTo('companies.html')">
+        <i data-lucide="building-2"></i> Companies
+    </div>
+
+    <div class="sidebar-item" onclick="goTo('../subscriptions/subscriptions.html')">
+        <i data-lucide="credit-card"></i> Subscriptions
+    </div>
+
+    <div class="sidebar-item" onclick="goTo('../staff/staff.html')">
+        <i data-lucide="users"></i> Staff
+    </div>
+
+    <div class="sidebar-item" onclick="goTo('../reports/reports.html')">
+        <i data-lucide="bar-chart-3"></i> Reports
+    </div>
+
+    <div class="sidebar-item" onclick="goTo('../settings/settings.html')">
+        <i data-lucide="settings"></i> Settings
+    </div>
+
+    <div class="sidebar-footer">
+        <div class="sidebar-item" onclick="goTo('../help/help.html')">
+            <i data-lucide="help-circle"></i> Help & Support
+        </div>
+    </div>
+
+</aside>
+
+
+<!-- Main -->
+
+<main class="main">
+
+    <header class="header">
+        <div class="search-container">
+            <i data-lucide="search" class="search-icon" size="18"></i>
+            <input type="text" placeholder="Search">
+        </div>
+    
+        <div class="header-icons">
+            <i data-lucide="bell"></i>
+            <i data-lucide="user-circle" size="32"></i>
+        </div>
+    </header>
+
+<div class="page-content">
+<section class="profile">
+
+<h2>Edit Profile</h2>
+
+<div class="profile-picture">
+
+    <div class="avatar-wrapper">
+      <i data-lucide="user" class="avatar"></i>
+    </div>
+  
+    <button class="upload-btn">
+      Upload Profile Photo
+    </button>
+  
+    <p class="photo-info">
+      Remember: use an image at least 200px by 200px in .jpg or .png format
+    </p>
+  
+  </div>
+
+
+<div class="profile-forms">
+
+<!-- Password -->
+
+<div class="form-box">
+
+<h3>Change Password</h3>
+
+<label>Current Password</label>
+<input type="password" placeholder="Password">
+
+<label>New Password</label>
+<input type="password" placeholder="Password">
+
+<label>Confirm Password</label>
+<input type="password" placeholder="Password">
+
+<button class="save-btn">Save Changes</button>
+
+</div>
+
+
+<!-- Contact -->
+
+<div class="form-box">
+
+<h3>Contact Info</h3>
+
+<label>Phone</label>
+<input type="text" placeholder="Phone number">
+
+<label>Email</label>
+<input type="email" placeholder="Email address">
+
+<button class="save-btn">Save Changes</button>
+
+</div>
+
+</div>
+
+</section>
+</div>
+</main>
+
+
+
+<script src="scripts.js"></script>
+
+<script>
+lucide.createIcons();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+    }
+    
+    body{
+    background:#f3f4f6;
+    }
+    
+    .dashboard-container{
+    display:flex;
+    height:100vh;
+    }
+    
+    /* Sidebar */
+    
+    .sidebar{
+    width:230px;
+    background:#0d3b72;
+    color:white;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    }
+    
+    .sidebar-item{
+    padding:12px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    border-radius:6px;
+    margin-bottom:8px;
+    }
+    
+    .sidebar-item:hover{
+    background:#0b2f59;
+    }
+    
+    .sidebar-item.active{
+    background:#0b2f59;
+    }
+    
+    .sidebar-footer{
+    margin-top:auto;
+    }
+    
+    /* Main */
+    
+    .dashboard-main{
+    flex:1;
+    padding:25px;
+    }
+    
+    /* Header */
+    
+    .header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+    }
+    
+    .search-container{
+    display:flex;
+    align-items:center;
+    background:white;
+    padding:8px 12px;
+    border-radius:20px;
+    border:1px solid #ddd;
+    }
+    
+    .search-container input{
+    border:none;
+    outline:none;
+    margin-left:8px;
+    }
+    
+    .header-icons{
+    display:flex;
+    gap:15px;
+    align-items:center;
+    }
+    
+    /* Table box */
+    
+    .table-box{
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.08);
+    }
+    
+    .table-header-flex{
+    margin-bottom:15px;
+    }
+    
+    /* Table */
+    
+    table{
+    width:100%;
+    border-collapse:collapse;
+    }
+    
+    th,td{
+    padding:12px;
+    text-align:left;
+    border-bottom:1px solid #eee;
+    }
+    
+    th{
+    color:#777;
+    font-weight:600;
+    }
+    
+    /* Role badge */
+    
+    .role{
+    background:#3b0d6b;
+    color:white;
+    padding:4px 10px;
+    border-radius:5px;
+    font-size:12px;
+    }
+    
+    /* Action buttons */
+    
+    .action-buttons{
+    display:flex;
+    gap:10px;
+    }
+    
+    .icon-btn{
+    border:none;
+    background:none;
+    cursor:pointer;
+    }
+    
+    .edit-btn{
+    color:#2563eb;
+    }
+    
+    .delete-btn{
+    color:#dc2626;
+    }
+    
+    .icon-btn:hover{
+    transform:scale(1.2);
+    }
+    

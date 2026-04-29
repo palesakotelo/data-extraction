@@ -75,54 +75,43 @@ body, html {
     overflow-y: auto;
 }
 
-.dashboard-header {
-    background: var(--white);
-    padding: 15px 40px;
-    display: flex;
-    justify-content: flex-end; /* Align icons to right as per Figma */
-    align-items: center;
-    gap: 25px;
-    border-bottom: 1px solid #E2E8F0;
-}
-
-.search-bar {
-    background: #F1F5F9;
-    border-radius: 20px;
-    padding: 8px 15px;
-    width: 300px;
-    display: flex;
-    align-items: center;
-    margin-right: auto; /* Pushes other icons to the right */
-}
-
-.search-bar input {
-    border: none;
-    background: transparent;
-    outline: none;
-    margin-left: 10px;
-    font-size: 14px;
-    width: 100%;
-}
-
-.header-icons {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.profile-circle {
-    width: 35px;
-    height: 35px;
-    background-color: #000;
-    color: white;
-    border-radius: 50%;
+.header {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: bold;
-    font-size: 14px;
+    padding: 15px 40px;
+    background: #fff;
 }
 
+.search-container {
+    position: relative;
+    width: 400px;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 10px 40px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    background: #fcfcfc;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.header-icons {
+    position: absolute;
+    right: 40px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
 /* --- Table Section --- */
 .table-box {
     padding: 40px;
@@ -164,9 +153,17 @@ body, html {
     border-bottom: none;
 }
 
+.companies-table td {
+    vertical-align: middle;
+}
+
 .table-logo {
     height: 35px;
-    max-width: 100px;
+    width: 90px;
+
+    display: block;
+    margin: 0 auto; /* PERFECT CENTERING */
+
     object-fit: contain;
 }
 
