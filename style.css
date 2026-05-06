@@ -1,8 +1,14 @@
 /* --- Global Styles --- */
+/* Sidebar container */
+
+
+
+
+
+
 body, html {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Ensures padding and borders are included in element's total width and height */
     height: 100%;
     background-color: #FFFFFF;
     font-family: 'Satoshi', sans-serif;
@@ -17,8 +23,8 @@ body, html {
 
 /* --- Card Styles --- */
 .login-card {
-    width: fit-content; 
-    height: fit-content; 
+    width: 412px;
+    height: 495px; 
     background-color: rgba(231, 244, 251, 0.55);
     border-radius: 15px;
     backdrop-filter: blur(10px);
@@ -28,7 +34,7 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 40px 20px; /* Slightly reduced padding for register form height */
+    padding: 20px; /* Slightly reduced padding for register form height */
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
 

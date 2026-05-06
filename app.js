@@ -50,4 +50,3 @@ function showScreen(screenId) {
     const activeId = sidebarMap[screenId];
     if(activeId) document.getElementById(activeId)?.classList.add('active');
 }
-
